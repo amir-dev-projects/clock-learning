@@ -36,9 +36,9 @@ function Clock({hour,minute,second,display}){
     <circle cx="300" cy="300" r="222" className="hour-ring"/><circle cx="300" cy="300" r="151" className="inner-ring"/>
     {display.minuteTicks&&Array.from({length:60},(_,i)=>{const a=point(cx,cy,i%5===0?228:235,i*6),b=point(cx,cy,247,i*6);return <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} className={i%5===0?"major-tick":"minor-tick"}/>;})}
     {display.hourTicks&&Array.from({length:12},(_,i)=>{const a=point(cx,cy,204,i*30),b=point(cx,cy,222,i*30);return <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} className="hour-tick"/>;})}
-    {display.minuteNumbers&&Array.from({length:60},(_,i)=>{const v=i+1,p=point(cx,cy,257,i*6);return <text key={v} x={p.x} y={p.y+4} className={`minute-number ${v<=30?"blue-number":"orange-number"}`}>{v}</text>;})}
-    {display.hourNumbers&&Array.from({length:12},(_,i)=>{const v=i+1,p=point(cx,cy,183,i*30);return <g key={v}><circle cx={p.x} cy={p.y} r="28" className="hour-disc"/><text x={p.x} y={p.y+10} className="hour-number" fill={colors[i]}>{v}</text></g>;})}
-    {display.twentyFour&&Array.from({length:12},(_,i)=>{const v=i+13,p=point(cx,cy,126,i*30);return <text key={v} x={p.x} y={p.y+5} className="twentyfour">{v}</text>;})}
+    {display.minuteNumbers&&Array.from({length:60},(_,i)=>{const v=i+1,p=point(cx,cy,257,v*6);return <text key={v} x={p.x} y={p.y+4} className={`minute-number ${v<=30?"blue-number":"orange-number"}`}>{v}</text>;})}
+    {display.hourNumbers&&Array.from({length:12},(_,i)=>{const v=i+1,p=point(cx,cy,183,v*30);return <g key={v}><circle cx={p.x} cy={p.y} r="28" className="hour-disc"/><text x={p.x} y={p.y+10} className="hour-number" fill={colors[i]}>{v}</text></g>;})}
+    {display.twentyFour&&Array.from({length:12},(_,i)=>{const v=i+13,p=point(cx,cy,126,(i+1)*30);return <text key={v} x={p.x} y={p.y+5} className="twentyfour">{v}</text>;})}
     {display.pastTo&&<><text x="427" y="309" className="past-label">PAST</text><text x="173" y="309" className="to-label">TO</text></>}
     {display.phraseMarkers&&phrases.map(q=>{const p=point(cx,cy,151,q.m*6);return <g key={q.m}><circle cx={p.x} cy={p.y} r="19" className="phrase-disc"/><text x={p.x} y={p.y-1} className="phrase-main">{q.t}</text><text x={p.x} y={p.y+10} className="phrase-sub">{q.s}</text></g>;})}
     {display.ampm&&<><text x="300" y="83" className="ampm">AM</text><text x="300" y="527" className="ampm">PM</text></>}
