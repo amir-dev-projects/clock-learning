@@ -79,6 +79,6 @@ export default function App(){
       </article>
       <aside><article className="readings"><div className="bulb">💡</div><small>LET'S READ THE TIME</small><h2>There is more than one way to say it!</h2><ol>{readings.map((r,i)=><li key={i}><b>{i+1}</b><span>{r}</span></li>)}</ol></article>
       <article className="settings"><button className="settings-head" onClick={()=>setSettingsOpen(v=>!v)}><strong>⚙️ Clock display settings</strong><b>{settingsOpen?"−":"+"}</b></button>{settingsOpen&&<><p>Choose how much help to show on the clock.</p><div className="presets">{[...Object.keys(PRESETS),"Custom"].map(n=><button key={n} className={preset===n?"active":""} onClick={()=>n!=="Custom"&&choosePreset(n)}>{n}</button>)}</div>{groups.map(g=><section className="group" key={g.title}><h3>{g.title}</h3>{g.items.map(([k,l])=><Toggle key={k} label={l} checked={display[k]} onChange={v=>toggle(k,v)}/>)}</section>)}<button className="reset" onClick={()=>choosePreset("Beginner")}>Reset to beginner settings</button></>}</article></aside>
-    </section><footer><span>Made for curious minds <b>✦</b> One minute at a time</span><strong>Created by AMIR FATEMI</strong><small>© 2026 AMIR FATEMI. All rights reserved.</small></footer>
+    </section><footer><strong>Created by AMIR FATEMI</strong><small>© 2026 AMIR FATEMI. All rights reserved.</small></footer>
   </main>;
 }
