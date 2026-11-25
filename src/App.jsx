@@ -29,7 +29,7 @@ function point(cx,cy,r,deg){const a=(deg-90)*Math.PI/180;return{x:cx+r*Math.cos(
 function Clock({hour,minute,second,display}){
   const cx=300,cy=300;
   const ha=(hour%12)*30+minute*.5+second/120, ma=minute*6+second*.1, sa=second*6;
-  const phrases=[{m:5,t:"5",s:"PAST"},{m:10,t:"10",s:"PAST"},{m:15,t:"¼",s:"PAST"},{m:20,t:"20",s:"PAST"},{m:25,t:"25",s:"PAST"},{m:30,t:"½",s:"PAST"},{m:35,t:"25",s:"TO"},{m:40,t:"20",s:"TO"},{m:45,t:"¼",s:"TO"},{m:50,t:"10",s:"TO"},{m:55,t:"5",s:"TO"}];
+  const phrases=[{m:5,t:"5",s:"PAST"},{m:10,t:"10",s:"PAST"},{m:15,t:"15",s:"PAST"},{m:20,t:"20",s:"PAST"},{m:25,t:"25",s:"PAST"},{m:30,t:"half",s:"PAST"},{m:35,t:"25",s:"TO"},{m:40,t:"20",s:"TO"},{m:45,t:"15",s:"TO"},{m:50,t:"10",s:"TO"},{m:55,t:"5",s:"TO"}];
   const colors=["#e85b43","#f08a32","#e8b735","#79b94b","#43a77a","#168e88","#398fcb","#4265bd","#5143a4","#733eaa","#c43b87","#e04c4d"];
   return <svg className="clock-svg" viewBox="0 0 600 600" role="img" aria-label={`Clock showing ${pad(hour)}:${pad(minute)}:${pad(second)}`}>
     <circle cx="300" cy="300" r="286" className="rim"/><circle cx="300" cy="300" r="270" className="face"/>
@@ -39,10 +39,10 @@ function Clock({hour,minute,second,display}){
     {display.hourTicks&&Array.from({length:12},(_,i)=>{const a=point(cx,cy,204,i*30),b=point(cx,cy,222,i*30);return <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} className="hour-tick"/>;})}
     {display.minuteNumbers&&Array.from({length:60},(_,i)=>{const v=i+1,p=point(cx,cy,257,v*6);return <text key={v} x={p.x} y={p.y+4} className={`minute-number ${v<=30?"blue-number":"orange-number"}`}>{v}</text>;})}
     {display.hourNumbers&&Array.from({length:12},(_,i)=>{const v=i+1,p=point(cx,cy,183,v*30);return <g key={v}><circle cx={p.x} cy={p.y} r="28" className="hour-disc"/><text x={p.x} y={p.y+10} className="hour-number" fill={colors[i]}>{v}</text></g>;})}
-    {display.twentyFour&&Array.from({length:12},(_,i)=>{const v=i+13,p=point(cx,cy,126,(i+1)*30);return <text key={v} x={p.x} y={p.y+5} className="twentyfour">{v}</text>;})}
+    {display.twentyFour&&Array.from({length:12},(_,i)=>{const v=i+13,p=point(cx,cy,112,(i+1)*30);return <text key={v} x={p.x} y={p.y+5} className="twentyfour">{v}</text>;})}
     {display.pastTo&&<><text x="400" y="309" className="past-label">PAST</text><text x="200" y="309" className="to-label">TO</text></>}
     {display.phraseMarkers&&phrases.map(q=>{const p=point(cx,cy,151,q.m*6);return <g key={q.m}><circle cx={p.x} cy={p.y} r="19" className="phrase-disc"/><text x={p.x} y={p.y-1} className="phrase-main">{q.t}</text><text x={p.x} y={p.y+10} className="phrase-sub">{q.s}</text></g>;})}
-    {display.ampm&&<><text x="300" y="83" className="ampm">AM</text><text x="300" y="527" className="ampm">PM</text></>}
+    
     {display.hourHand&&<line x1="300" y1="300" x2="300" y2="174" className="hour-hand" transform={`rotate(${ha} 300 300)`}/>}
     {display.minuteHand&&<line x1="300" y1="300" x2="300" y2="123" className="minute-hand" transform={`rotate(${ma} 300 300)`}/>}
     {display.secondHand&&<line x1="300" y1="334" x2="300" y2="93" className="second-hand" transform={`rotate(${sa} 300 300)`}/>}
@@ -64,7 +64,7 @@ export default function App(){
   const randomTime=()=>setTime({hour:Math.floor(Math.random()*24),minute:Math.floor(Math.random()*60),second:Math.floor(Math.random()*60)});
   const groups=[
     {title:"Numbers",items:[["hourNumbers","Hour numbers (1–12)"],["minuteNumbers","Minute numbers (1–60)"],["twentyFour","24-hour numbers (13–24)"]]},
-    {title:"Labels and helpers",items:[["pastTo","Past and To labels"],["phraseMarkers","Minute reading guides"],["ampm","AM / PM labels"]]},
+    {title:"Labels and helpers",items:[["pastTo","Past and To labels"],["phraseMarkers","Minute reading guides"],]},
     {title:"Markings",items:[["minuteTicks","Minute markings"],["hourTicks","Hour markings"]]},
     {title:"Clock hands",items:[["hourHand","Hour hand"],["minuteHand","Minute hand"],["secondHand","Second hand"]]}
   ];
