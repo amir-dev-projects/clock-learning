@@ -40,7 +40,7 @@ function Clock({hour,minute,second,display}){
     {display.minuteNumbers&&Array.from({length:60},(_,i)=>{const v=i+1,p=point(cx,cy,257,v*6);return <text key={v} x={p.x} y={p.y+4} className={`minute-number ${v<=30?"blue-number":"orange-number"}`}>{v}</text>;})}
     {display.hourNumbers&&Array.from({length:12},(_,i)=>{const v=i+1,p=point(cx,cy,183,v*30);return <g key={v}><circle cx={p.x} cy={p.y} r="28" className="hour-disc"/><text x={p.x} y={p.y+10} className="hour-number" fill={colors[i]}>{v}</text></g>;})}
     {display.twentyFour&&Array.from({length:12},(_,i)=>{const v=i+13,p=point(cx,cy,112,(i+1)*30);return <text key={v} x={p.x} y={p.y+5} className="twentyfour">{v}</text>;})}
-    {display.pastTo&&<><text x="400" y="309" className="past-label">PAST</text><text x="200" y="309" className="to-label">TO</text></>}
+    {display.pastTo&&<><text x="385" y="309" className="past-label">PAST</text><text x="215" y="309" className="to-label">TO</text></>}
     {display.phraseMarkers&&phrases.map(q=>{const p=point(cx,cy,151,q.m*6);return <g key={q.m}><circle cx={p.x} cy={p.y} r="19" className="phrase-disc"/><text x={p.x} y={p.y-1} className="phrase-main">{q.t}</text><text x={p.x} y={p.y+10} className="phrase-sub">{q.s}</text></g>;})}
     
     {display.hourHand&&<line x1="300" y1="300" x2="300" y2="174" className="hour-hand" transform={`rotate(${ha} 300 300)`}/>}
