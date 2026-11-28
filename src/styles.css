@@ -198,3 +198,50 @@
 .calendar-illustration img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain;object-position:center;margin:0 auto}
 @media(min-width:900px){.calendar-illustration{max-width:1040px}.calendar-illustration img{max-height:320px}}
 @media(max-width:620px){.calendar-illustration{max-width:100%;border-radius:14px}.calendar-illustration img{max-height:220px}}
+
+
+/* Clock Learning — character-led learning adventure home */
+.adventure-home{padding:30px 0 55px}
+.adventure-welcome{position:relative;display:flex;align-items:center;justify-content:space-between;gap:28px;min-height:230px;padding:34px 38px;border-radius:26px;background:linear-gradient(115deg,#e4f3ff 0%,#f5f9ff 58%,#fff1df 100%);border:1px solid #dceaf4;overflow:hidden}
+.adventure-copy{max-width:620px;position:relative;z-index:1}
+.adventure-copy h1{font:800 clamp(36px,5vw,54px)/1.05 'Baloo 2';color:#233c55;margin:10px 0}
+.adventure-copy p{max-width:590px;color:#6f8297;font-size:15px;line-height:1.7;margin:0}
+.adventure-welcome-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.adventure-cast-note{align-self:flex-end;min-width:225px;padding:15px 18px;border-radius:17px;background:#ffffffc9;border:1px solid #fff;box-shadow:0 9px 24px #28445c0c}
+.adventure-cast-note strong,.adventure-cast-note span{display:block}.adventure-cast-note strong{font:800 14px 'Baloo 2';color:#2c4b65}.adventure-cast-note span{font-size:11px;color:#77899a;line-height:1.5;margin-top:3px}
+.adventure-map-section{padding:34px 0 20px}
+.adventure-section-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:17px}
+.adventure-section-heading h2,.side-quest-copy h2{font:800 29px 'Baloo 2';margin:4px 0;color:#263f58}
+.adventure-section-heading p,.side-quest-copy p{margin:0;color:#74869a;font-size:13px;line-height:1.6}
+.journey-stamp{padding:8px 12px;border-radius:30px;background:#fff5df;color:#a8742f;font-size:9px;font-weight:900;letter-spacing:1px;white-space:nowrap}
+.adventure-map-frame{position:relative;overflow:hidden;border:1px solid #dceaf4;border-radius:24px;background:linear-gradient(145deg,#cceaff,#e8f7ff 55%,#f6edda);box-shadow:0 12px 30px #25445b12}
+.adventure-map-image{display:block;width:100%;height:auto;max-height:450px;object-fit:cover;object-position:center 54%}
+.adventure-map-image.asset-missing{display:none}
+.map-image-fallback{display:none;position:relative;min-height:280px;align-items:center;justify-content:space-around;gap:15px;padding:40px 22px;background:radial-gradient(circle at 15% 20%,#9bd7f3 0 6%,transparent 7%),radial-gradient(circle at 80% 30%,#b9dfae 0 14%,transparent 15%),linear-gradient(135deg,#c9e9fa,#e6f4e6)}
+.adventure-map-image.asset-missing+.map-image-fallback{display:flex}
+.fallback-path{position:absolute;left:12%;right:12%;top:53%;height:7px;border-radius:20px;background:#eab85f;transform:rotate(-7deg);box-shadow:0 0 0 5px #fff8}
+.fallback-stop{position:relative;z-index:1;padding:12px 15px;border-radius:15px;background:#fff;color:#34546d;font:800 12px 'Baloo 2';box-shadow:0 7px 15px #31536b1c}
+.stop-clock{margin-top:-90px}.stop-calendar{margin-top:60px}.stop-earth{margin-top:-65px}.stop-space{margin-top:55px}
+.map-caption{position:absolute;right:16px;bottom:15px;padding:9px 13px;border-radius:13px;background:#ffffffeb;color:#37566f;font:800 11px Nunito;box-shadow:0 5px 15px #27445b18}
+.adventure-world-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.adventure-world-card{display:flex;flex-direction:column;min-height:280px;padding:19px;border:1px solid #e1eaf1;border-radius:20px;background:#fff;box-shadow:0 8px 23px #263f5709;position:relative;overflow:hidden}
+.adventure-world-card:before{content:"";position:absolute;right:-35px;top:-48px;width:130px;height:130px;border-radius:50%;background:var(--world-glow,#eaf5ff)}
+.adventure-world-card.clock-theme{--world-glow:#e0f2ff}.adventure-world-card.calendar-theme{--world-glow:#e4f5e9}.adventure-world-card.earth-theme{--world-glow:#f0eaff}
+.world-card-top,.world-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.world-number{font-size:9px;font-weight:900;letter-spacing:1.2px;color:#8293a4}
+.world-status{font-size:9px;font-weight:900;color:#3988b8;background:#eaf6ff;border-radius:30px;padding:6px 8px}
+.world-status.upcoming{color:#8c7aa7;background:#f3effa}
+.world-icon{width:66px;height:66px;margin:18px 0 7px;position:relative;z-index:1}.world-icon svg{width:100%;height:100%}
+.adventure-world-card h3{font:800 20px 'Baloo 2';margin:0;color:#2b455d;position:relative;z-index:1}
+.adventure-world-card p{font-size:12px;line-height:1.6;color:#75879a;margin:5px 0 16px;position:relative;z-index:1}
+.world-card-bottom{margin-top:auto;padding-top:13px;border-top:1px solid #edf1f5}
+.world-card-bottom>span{font-size:10px;font-weight:800;color:#8291a1}
+.world-card-bottom button{border:0;background:transparent;color:#287db4;font:900 11px Nunito;cursor:pointer;padding:6px 0}
+.world-card-bottom button b{padding-left:4px}
+.world-upcoming{background:linear-gradient(150deg,#fff,#faf8ff)}
+.adventure-side-quests{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 25px;margin-top:18px;border:1px solid #dcebf4;border-radius:20px;background:#f0f8ff}
+.side-quest-copy h2{font-size:21px}.side-quest-copy p{max-width:620px}
+.adventure-age-note{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 21px;margin-top:16px;border:1px solid #e9eaf2;border-radius:17px;background:#fff}
+.adventure-age-note strong{font:800 15px 'Baloo 2';color:#344f67}.adventure-age-note p{font-size:11px;color:#7c8b9b;margin:3px 0 0}.adventure-age-note>span{font-size:9px;font-weight:900;letter-spacing:.8px;color:#8b7ca8;background:#f3effa;padding:8px 11px;border-radius:20px;white-space:nowrap}
+@media(max-width:850px){.adventure-welcome{align-items:flex-start;flex-direction:column}.adventure-cast-note{align-self:flex-start}.adventure-world-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.adventure-home{padding:18px 0 36px}.adventure-welcome{padding:24px 19px;border-radius:20px}.adventure-copy h1{font-size:37px}.adventure-copy p{font-size:13px}.adventure-section-heading{align-items:flex-start;flex-direction:column}.journey-stamp{display:none}.adventure-map-image{min-height:190px;object-fit:cover}.map-caption{left:10px;right:10px;bottom:10px;text-align:center;font-size:10px}.map-image-fallback{min-height:220px;flex-wrap:wrap}.fallback-stop{font-size:10px;padding:9px 10px}.adventure-world-grid{grid-template-columns:1fr}.adventure-world-card{min-height:240px}.adventure-side-quests,.adventure-age-note{align-items:flex-start;flex-direction:column}.adventure-welcome-actions{flex-direction:column;align-items:stretch}.adventure-welcome-actions button{width:100%}}
