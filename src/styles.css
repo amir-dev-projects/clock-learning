@@ -191,3 +191,9 @@
 .clock-home-button{border:1px solid #cfe3f1;border-radius:12px;background:#f4faff;color:#246f9f;padding:11px 14px;font:900 12px Nunito;cursor:pointer;white-space:nowrap}
 .clock-home-button:hover{background:#e7f4fd;border-color:#a9d1e9}
 @media(max-width:620px){.home-actions{width:100%}.clock-home-button{white-space:normal}}
+
+
+/* Custom educational illustrations: each lesson has a purpose-built visual scene */
+.calendar-illustration{width:100%;overflow:hidden;border:1px solid #dceaf4;border-radius:24px;background:#eef7ff;box-shadow:0 12px 28px #284c6810}
+.calendar-illustration svg{display:block;width:100%;height:auto;min-height:220px}
+@media(max-width:620px){.calendar-illustration{border-radius:16px}.calendar-illustration svg{min-height:160px}}
