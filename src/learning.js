@@ -17,9 +17,22 @@ export const modules = [
   {id:15,title:"Time in Everyday Life",subtitle:"Read schedules and plan activities.",available:true},
   {id:16,title:"Clock Master Challenge",subtitle:"Bring all your clock skills together.",available:true}
  ]},
- {id:"calendar",title:"Calendar & Time",emoji:"🗓️",theme:"calendar-theme",kicker:"DAYS, DATES & SEASONS",description:"Explore days, weeks, months, dates, birthdays, seasons and how we use calendars.",lessons:[
-  "Days of the Week","Yesterday, Today and Tomorrow","Weeks and Weekends","The Twelve Months","Understanding Dates","Reading and Using a Calendar","Birthdays, Holidays and Important Events","Seasons of the Year","Understanding a Year and Leap Years","Time Around the World"
- ].map((title,i)=>({id:i+1,title,available:false}))},
+ {id:"calendar",title:"Calendar & Time",emoji:"🗓️",theme:"calendar-theme",kicker:"DAYS, DATES & CALENDAR SYSTEMS",description:"Explore days, weeks, months, seasons, solar and lunar calendars, and how people organize time around the world.",lessons:[
+  ["Days of the Week","Learn the seven days and their repeating order."],
+  ["Yesterday, Today and Tomorrow","Talk about the day before, the day now and the day ahead."],
+  ["Weeks and Weekends","Understand seven-day weeks, weekdays and weekends."],
+  ["The Twelve Months","Discover the names and lengths of the months."],
+  ["Understanding Dates","Learn how day, month and year make a date."],
+  ["Reading and Using a Calendar","Find dates, follow weeks and plan ahead."],
+  ["Birthdays, Holidays and Special Events","See how calendars help us remember important days."],
+  ["Seasons of the Year","Explore spring, summer, autumn and winter."],
+  ["Understanding a Year and Leap Years","Discover Earth's year and why February sometimes has 29 days."],
+  ["Solar Calendars — Following the Sun","Learn how solar calendars follow Earth's journey around the Sun."],
+  ["Lunar Calendars — Following the Moon","Explore Moon phases and lunar months."],
+  ["Solar, Lunar and Lunisolar Calendars","Compare calendar systems used by people around the world."],
+  ["Time Around the World — Time Zones","Understand why local times differ around Earth."],
+  ["Calendar Master Challenge","Bring your calendar and time knowledge together."]
+ ].map(([title,subtitle],i)=>({id:i+1,title,subtitle,available:true}))},
  {id:"earth",title:"Space & Earth",emoji:"🌎",theme:"earth-theme",kicker:"OUR PLANET & THE WORLD AROUND US",description:"Discover our planet, maps, directions, the Sun, Moon, weather and the natural world.",lessons:[
   "Our Home Planet — Earth","Finding Places — Globes and Maps","Directions — North, South, East and West","The Sun — Daylight, Sunrise and Sunset","Day and Night — Why Earth Rotates","Seasons — Why Seasons Change","The Moon — Why It Changes Appearance","Weather — Clouds, Rain, Snow and Wind","Water on Earth — Oceans, Rivers and the Water Cycle","Our Environment — Nature and Caring for Earth","Our Solar System — The Sun and Eight Planets","Connecting Earth, Sun and Moon"
  ].map((title,i)=>({id:i+1,title,available:false}))}
