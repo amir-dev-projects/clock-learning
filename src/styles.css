@@ -24,3 +24,8 @@
 .visual-symbol{font-size:27px;line-height:1.25;color:#287db6;font:800 24px 'Baloo 2',sans-serif}
 .visual-item small{font-size:10px;font-weight:800;color:#6c8093}
 @media(max-width:580px){.lesson-visual{padding:15px}.visual-items{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-item{min-height:76px}}
+
+
+.takeaway-card{display:flex;align-items:center;gap:12px;margin:0 0 19px;padding:13px 17px;border:1px solid #dceee4;border-radius:14px;background:#f0f8f3}
+.takeaway-card>span{font-size:21px;flex:none}
+.takeaway-card p{margin:0;color:#426b55;font-size:12px;font-weight:800;line-height:1.6}
