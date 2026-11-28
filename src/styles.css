@@ -245,3 +245,126 @@
 .adventure-age-note strong{font:800 15px 'Baloo 2';color:#344f67}.adventure-age-note p{font-size:11px;color:#7c8b9b;margin:3px 0 0}.adventure-age-note>span{font-size:9px;font-weight:900;letter-spacing:.8px;color:#8b7ca8;background:#f3effa;padding:8px 11px;border-radius:20px;white-space:nowrap}
 @media(max-width:850px){.adventure-welcome{align-items:flex-start;flex-direction:column}.adventure-cast-note{align-self:flex-start}.adventure-world-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.adventure-home{padding:18px 0 36px}.adventure-welcome{padding:24px 19px;border-radius:20px}.adventure-copy h1{font-size:37px}.adventure-copy p{font-size:13px}.adventure-section-heading{align-items:flex-start;flex-direction:column}.journey-stamp{display:none}.adventure-map-image{min-height:190px;object-fit:cover}.map-caption{left:10px;right:10px;bottom:10px;text-align:center;font-size:10px}.map-image-fallback{min-height:220px;flex-wrap:wrap}.fallback-stop{font-size:10px;padding:9px 10px}.adventure-world-grid{grid-template-columns:1fr}.adventure-world-card{min-height:240px}.adventure-side-quests,.adventure-age-note{align-items:flex-start;flex-direction:column}.adventure-welcome-actions{flex-direction:column;align-items:stretch}.adventure-welcome-actions button{width:100%}}
+
+
+
+/* Shared adventure design system for home, worlds and lessons */
+:root{
+ --adventure-ink:#29445c;
+ --adventure-muted:#71859a;
+ --adventure-blue:#287fb9;
+ --adventure-blue-soft:#eaf5fd;
+ --adventure-green:#4b9875;
+ --adventure-green-soft:#edf7f0;
+ --adventure-gold:#e7b65e;
+ --adventure-line:#dfe9f1;
+ --adventure-card-shadow:0 10px 28px #29445c0b;
+}
+.learning-shell{background:#f3f7fb;color:var(--adventure-ink)}
+.site-header{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:#ffffffed;border-bottom-color:var(--adventure-line);box-shadow:0 3px 14px #29445c08}
+.site-header nav button{transition:background .18s ease,color .18s ease,transform .18s ease}
+.site-header nav button.active{background:#eaf4fc;color:#236d9f}
+.site-header nav button:focus-visible,.brand-button:focus-visible,.primary-button:focus-visible,.secondary-button:focus-visible,.text-button:focus-visible,.back-link:focus-visible{outline:3px solid #8bc5e9;outline-offset:3px}
+.page-container{max-width:1440px}
+.adventure-home,.module-page,.lesson-page{animation:adventurePageIn .28s ease both}
+@keyframes adventurePageIn{from{opacity:.65;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.adventure-welcome,.adventure-map-frame,.adventure-world-card,.adventure-side-quests,.adventure-age-note{box-shadow:var(--adventure-card-shadow)}
+.adventure-world-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.adventure-world-card:hover{transform:translateY(-3px);box-shadow:0 15px 30px #29445c12;border-color:#cbdfea}
+.adventure-world-card:focus-within{outline:2px solid #a8d0e9;outline-offset:3px}
+.module-page{padding:20px 0 38px}
+.module-page>.back-link{margin-bottom:7px}
+.module-banner{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr);gap:24px;align-items:center;min-height:240px;padding:30px 34px;overflow:hidden;border:1px solid var(--adventure-line);box-shadow:var(--adventure-card-shadow)}
+.module-banner.clock-theme{background:linear-gradient(115deg,#e6f4ff,#f8fbff 68%,#eaf5fc)}
+.module-banner.calendar-theme{background:linear-gradient(115deg,#eaf6ee,#fbfdfb 68%,#f5f8e9)}
+.module-banner.earth-theme{background:linear-gradient(115deg,#eaf3fb,#f8fbff 68%,#f1edfb)}
+.module-banner-copy{position:relative;z-index:1;min-width:0}
+.module-banner .world-kicker{display:block;margin-top:7px;color:#8a9aaa;font-size:9px;font-weight:900;letter-spacing:1.4px}
+.module-banner h1{font-size:clamp(30px,3.4vw,43px);line-height:1.08;margin:7px 0 9px}
+.module-banner p{font-size:14px;max-width:590px;line-height:1.7}
+.module-banner-art{height:170px;overflow:hidden;border-radius:18px;border:1px solid #ffffffc9;background:#ffffff8c}
+.module-banner-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%}
+.module-progress{display:flex;align-items:center;gap:12px;max-width:420px;margin-top:17px;color:#6c8193;font-size:11px;font-weight:900}
+.module-progress-track{height:8px;flex:1;overflow:hidden;border-radius:20px;background:#ffffffc9}
+.module-progress-track i{display:block;height:100%;border-radius:20px;background:var(--adventure-blue)}
+.calendar-theme .module-progress-track i{background:var(--adventure-green)}
+.lesson-heading{margin:32px 0 17px;align-items:end}
+.lesson-heading h2{margin:4px 0 0}
+.lesson-heading p{margin:4px 0 0;color:var(--adventure-muted);font-size:13px}
+.lesson-count-pill{padding:8px 12px;border:1px solid var(--adventure-line);border-radius:30px;background:#fff;color:#6c8193;font-size:11px;font-weight:900;white-space:nowrap}
+.lesson-list{gap:10px}
+.lesson-row{min-height:78px;padding:14px 18px;border-radius:16px;box-shadow:0 4px 12px #29445c06;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+.lesson-row:not(.locked):hover{transform:translateX(3px);border-color:#c8ddeb;box-shadow:0 8px 18px #29445c0c}
+.lesson-number{width:43px;height:43px;border-radius:13px;background:#edf6fc;color:#287db6;font-size:13px}
+.calendar-theme .lesson-number{background:#edf7f0;color:#438765}
+.earth-theme .lesson-number{background:#f2eff9;color:#7a68a1}
+.lesson-info strong{font-size:17px;color:#304b63}
+.lesson-info small{font-size:12px;line-height:1.5}
+.lesson-row .text-button{padding:10px 12px;border-radius:10px;background:#edf6fc;color:#2675a8}
+.lesson-row.locked{background:#fafbfd}
+.module-return{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:23px;padding:17px 20px;border:1px solid var(--adventure-line);border-radius:16px;background:#ffffffa8;color:var(--adventure-muted);font-size:12px;font-weight:800}
+.secondary-button{border:1px solid #d5e4ee;border-radius:11px;background:#fff;color:#38617e;padding:10px 14px;font:900 11px Nunito;cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.secondary-button:hover{background:#eef7fd;border-color:#b8d5e8}
+.lesson-page{padding:18px 0 42px}
+.lesson-breadcrumb{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:5px 0 2px;color:#9aa8b5;font-size:11px;font-weight:900}
+.lesson-breadcrumb .back-link{font-size:11px;color:#658098}
+.breadcrumb-current{color:#3e617c}
+.lesson-hero{padding:24px 0 20px}
+.lesson-hero .eyebrow{color:var(--module-accent,#287fb9)}
+.lesson-hero h1{color:#263f57;font-size:clamp(34px,4vw,48px);line-height:1.08;margin:7px 0 9px}
+.lesson-hero p{max-width:900px;font-size:16px;line-height:1.75;color:#71859a}
+.explorer-guide{display:flex;align-items:center;gap:15px;max-width:100%;margin:0 0 20px;padding:11px 15px;border:1px solid #dceaf4;border-radius:16px;background:linear-gradient(100deg,#edf7ff,#fff 75%);overflow:hidden}
+.explorer-guide img{width:88px;height:58px;flex:none;object-fit:cover;object-position:50% 55%;border-radius:10px}
+.explorer-guide>div{min-width:0;flex:1}
+.guide-label{display:block;color:#3984b1;font-size:9px;font-weight:900;letter-spacing:1.2px}
+.explorer-guide p{margin:3px 0 0;color:#5d758a;font-size:12px;line-height:1.55;font-weight:800}
+.guide-paw{display:grid;place-items:center;width:32px;height:32px;flex:none;border-radius:50%;background:#fff3d9;color:#c18a35;font-size:19px}
+.takeaway-card{border-radius:16px;box-shadow:var(--adventure-card-shadow)}
+.learning-card,.activity-card,.quiz-card,.sidebar-card{border-radius:18px;box-shadow:var(--adventure-card-shadow)}
+.activity-card{background:linear-gradient(110deg,#fff9ed,#fff)}
+.quiz-card{border-color:#dce8f1}
+.answer-option{transition:border-color .15s ease,background .15s ease,transform .15s ease}
+.answer-option:hover:not(:disabled){transform:translateY(-1px);border-color:#a9cde4}
+.lesson-bottom{gap:16px;padding-top:18px;border-top:1px solid #e4ebf1}
+.lesson-stepper{display:flex;align-items:center;gap:13px;color:#8393a2;font-size:11px;font-weight:900}
+.lesson-stepper .primary-button{white-space:nowrap}
+.site-footer{margin-top:8px}
+.clock-back{margin:13px auto 0;max-width:1300px}
+@media(max-width:900px){
+ .site-header{position:relative;flex-direction:column;align-items:stretch}
+ .site-header nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}
+ .site-header nav button{white-space:nowrap}
+ .module-banner{grid-template-columns:1fr;gap:17px}
+ .module-banner-art{height:145px;max-width:100%}
+ .module-progress{max-width:100%}
+}
+@media(max-width:620px){
+ .site-header{padding:12px 14px;gap:9px}
+ .site-header nav{gap:3px}
+ .site-header nav button{font-size:11px;padding:9px 10px}
+ .module-page{padding-top:13px}
+ .module-banner{padding:21px 18px;border-radius:19px;min-height:0}
+ .module-banner-art{height:120px}
+ .module-banner h1{font-size:31px}
+ .module-banner p{font-size:13px}
+ .lesson-heading{margin:25px 0 14px;align-items:flex-start}
+ .lesson-heading h2{font-size:25px}
+ .lesson-count-pill{font-size:9px;padding:7px 9px}
+ .lesson-row{min-height:70px;padding:12px 10px;gap:10px}
+ .lesson-number{width:36px;height:36px;font-size:11px}
+ .lesson-info strong{font-size:14px}
+ .lesson-info small{font-size:10px}
+ .lesson-row .text-button{font-size:10px;padding:8px}
+ .module-return{align-items:flex-start;flex-direction:column}
+ .lesson-breadcrumb{gap:6px;font-size:10px}
+ .lesson-hero{padding:18px 0 15px}
+ .lesson-hero h1{font-size:34px}
+ .lesson-hero p{font-size:14px}
+ .explorer-guide{gap:10px;padding:9px 10px}
+ .explorer-guide img{width:66px;height:50px}
+ .explorer-guide p{font-size:10px}
+ .guide-paw{width:27px;height:27px}
+ .lesson-bottom{align-items:stretch;flex-direction:column}
+ .lesson-stepper{justify-content:space-between}
+ .lesson-stepper .primary-button{padding:11px 12px;font-size:10px}
+}
