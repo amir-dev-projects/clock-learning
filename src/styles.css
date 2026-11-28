@@ -384,3 +384,31 @@
  .clock-story-image{border-radius:11px}
  .clock-story-footer{font-size:10px;line-height:1.5}
 }
+
+
+/* Shared illustration sizing across learning modules */
+.clock-story-visual,
+.calendar-illustration{
+  width:100%;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.clock-story-image,
+.calendar-illustration img{
+  display:block;
+  width:100%;
+  max-width:760px;
+  height:auto;
+  max-height:none;
+  margin-left:auto;
+  margin-right:auto;
+  object-fit:contain;
+  object-position:center;
+}
+@media(max-width:620px){
+  .clock-story-visual,
+  .calendar-illustration{max-width:100%}
+  .clock-story-image,
+  .calendar-illustration img{width:100%;max-height:none}
+}
