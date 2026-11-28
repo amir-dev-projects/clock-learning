@@ -194,6 +194,7 @@
 
 
 /* Custom educational illustrations: each lesson has a purpose-built visual scene */
-.calendar-illustration{width:100%;margin:0;overflow:hidden;border:1px solid #dceaf4;border-radius:24px;background:#eef7ff;box-shadow:0 12px 28px #284c6810}
-.calendar-illustration img{display:block;width:100%;height:auto;object-fit:contain}
-@media(max-width:620px){.calendar-illustration{border-radius:16px}}
+.calendar-illustration{width:100%;max-width:100%;margin:0 auto;overflow:hidden;border:1px solid #dceaf4;border-radius:20px;background:#eef7ff;box-shadow:0 8px 20px #284c680c}
+.calendar-illustration img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain;object-position:center;margin:0 auto}
+@media(min-width:900px){.calendar-illustration{max-width:1040px}.calendar-illustration img{max-height:320px}}
+@media(max-width:620px){.calendar-illustration{max-width:100%;border-radius:14px}.calendar-illustration img{max-height:220px}}
