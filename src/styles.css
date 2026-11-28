@@ -370,19 +370,17 @@
 }
 
 
-/* Clock Tower lesson illustrations: consistent explorer-led visual language */
+/* Clock Tower lesson artwork: approved 3D storybook illustrations */
 .clock-story-visual{padding:20px;margin:8px 0 22px;border:1px solid #dce9f1;border-radius:22px;background:#fff;box-shadow:0 10px 28px #29445c0b;overflow:hidden}
 .clock-story-heading{max-width:780px;margin:0 auto 15px;text-align:center}
 .clock-story-heading .eyebrow{font-size:9px;letter-spacing:1.5px}
-.clock-story-heading>strong{display:block;margin:5px 0;color:#29445c;font:800 22px 'Baloo 2'}
-.clock-story-heading p{margin:0;color:#71859a;font-size:13px;line-height:1.6}
-.clock-story-art{display:block;width:100%;height:auto;max-height:390px;border-radius:16px;overflow:hidden}
+.clock-story-heading>strong{display:block;margin:5px 0;color:#29445c;font:800 21px 'Baloo 2';line-height:1.35}
+.clock-story-image{display:block;width:min(100%,760px);height:auto;aspect-ratio:1/1;object-fit:cover;margin:0 auto;border-radius:16px}
 .clock-story-footer{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 6px 1px;color:#71859a;font-size:11px;font-weight:800;text-align:center}
 .story-dot{width:8px;height:8px;flex:none;border-radius:50%;background:#e8b65f;box-shadow:0 0 0 4px #fff4df}
 @media(max-width:620px){
  .clock-story-visual{padding:12px;border-radius:17px;margin:5px 0 17px}
- .clock-story-heading>strong{font-size:18px}
- .clock-story-heading p{font-size:11px}
- .clock-story-art{border-radius:11px}
+ .clock-story-heading>strong{font-size:17px}
+ .clock-story-image{border-radius:11px}
  .clock-story-footer{font-size:10px;line-height:1.5}
 }
