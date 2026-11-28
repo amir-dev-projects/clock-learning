@@ -66,28 +66,70 @@ function ModulePage({moduleId,setPage}) {
 
 function LessonVisual({lessonId}) {
  const scenes = {
-  1: {title:"A day is full of moments",items:[["🌅","Wake up"],["🥣","Breakfast"],["🎒","School"],["🌙","Bedtime"]]},
-  2: {title:"People have found many ways to measure time",items:[["☀️","Sundial"],["💧","Water clock"],["⌛","Hourglass"],["⌚","Clock"]]},
-  3: {title:"Meet the parts of an analog clock",items:[["🔢","12 numbers"],["🟦","Short hour hand"],["🟠","Long minute hand"],["•","Centre"]]},
-  4: {title:"The short hand moves from hour to hour",items:[["1","One o'clock"],["2","Two o'clock"],["3","Three o'clock"],["4","Four o'clock"]]},
-  5: {title:"Count minutes in groups of five",items:[["12","0 min"],["1","5 min"],["2","10 min"],["3","15 min"],["4","20 min"]]},
-  6: {title:"At o'clock, the minute hand points to 12",items:[["🕐","1:00"],["🕒","3:00"],["🕕","6:00"],["🕘","9:00"]]},
-  7: {title:"Minutes move past the hour",items:[["🕒","3:00"],["🕒","3:05"],["🕒","3:10"],["🕒","3:15"]]},
-  8: {title:"One hour has four equal quarters",items:[["12","Start"],["3","Quarter past"],["6","Half past"],["9","Quarter to"]]},
-  9: {title:"Count the minutes until the next hour",items:[["6","30 minutes past"],["9","15 minutes to"],["10","10 minutes to"],["11","5 minutes to"]]},
-  10: {title:"Two ways to show the same time",items:[["🕒","Analog clock"],["7:30","Digital time"],["🕘","Analog clock"],["9:00","Digital time"]]},
-  11: {title:"A second hand makes one full turn in 60 seconds",items:[["1","1 second"],["15","15 seconds"],["30","30 seconds"],["60","1 minute"]]},
-  12: {title:"AM and PM describe different parts of the day",items:[["🌅","7:00 AM"],["☀️","12:00 PM · Noon"],["🌇","6:00 PM"],["🌙","12:00 AM · Midnight"]]},
-  13: {title:"The same time can be written in two ways",items:[["7:00 AM","07:00"],["1:00 PM","13:00"],["6:30 PM","18:30"],["9:15 PM","21:15"]]},
-  14: {title:"Count forward to find how much time has passed",items:[["3:10","Start"],["3:20","+10 min"],["3:30","+20 min"],["3:40","Finish · 30 min"]]},
-  15: {title:"A simple schedule helps us plan our day",items:[["8:00","Wake up"],["8:15","Get ready"],["8:30","Leave home"],["9:00","School"]]},
-  16: {title:"You are ready to become a Clock Master!",items:[["🕒","Read the clock"],["🌞","Know AM and PM"],["⏱️","Measure time"],["🏆","Plan your day"]]},
+  1:{title:"A day is full of moments",caption:"Follow the explorers through a day, from sunrise to bedtime.",time:"7:00",hour:7,minute:0,tag:"A DAY",detail:"Morning · Afternoon · Evening"},
+  2:{title:"Why do we need clocks?",caption:"Clocks help everyone know when to meet, learn, play and rest.",time:"9:00",hour:9,minute:0,tag:"OUR ROUTINE",detail:"Plan · Meet · Play · Rest"},
+  3:{title:"Meet the parts of an analog clock",caption:"Find the face, the numbers, the short hour hand and the long minute hand.",time:"3:00",hour:3,minute:0,tag:"CLOCK PARTS",detail:"Face · Numbers · Hands"},
+  4:{title:"The hour hand",caption:"The short hand moves slowly from one hour number to the next.",time:"4:00",hour:4,minute:0,tag:"HOURS",detail:"One number to the next"},
+  5:{title:"The minute hand",caption:"Count around the clock in groups of five minutes.",time:"2:20",hour:2,minute:20,tag:"MINUTES",detail:"5 · 10 · 15 · 20 · 25"},
+  6:{title:"Reading o'clock times",caption:"When the minute hand points to 12, we say o'clock.",time:"8:00",hour:8,minute:0,tag:"O'CLOCK",detail:"The minute hand points to 12"},
+  7:{title:"Minutes past the hour",caption:"Watch the minute hand move past 12 and count the minutes.",time:"3:15",hour:3,minute:15,tag:"MINUTES PAST",detail:"5 · 10 · 15 · 20"},
+  8:{title:"Half past and quarter past",caption:"An hour has four quarters. Each quarter is 15 minutes.",time:"4:30",hour:4,minute:30,tag:"QUARTERS",detail:"15 min · 30 min · 45 min"},
+  9:{title:"To the next hour",caption:"After half past, count how many minutes remain until the next hour.",time:"4:45",hour:4,minute:45,tag:"MINUTES TO",detail:"15 minutes until 5 o'clock"},
+  10:{title:"Analog and digital clocks",caption:"The clock with hands and the digital display can show the same time.",time:"7:30",hour:7,minute:30,tag:"TWO WAYS",detail:"Analog  ·  Digital"},
+  11:{title:"The second hand",caption:"The second hand moves quickly and makes one full turn in a minute.",time:"10:24",hour:10,minute:24,tag:"SECONDS",detail:"60 seconds = 1 minute"},
+  12:{title:"AM and PM",caption:"AM helps describe morning. PM helps describe afternoon and evening.",time:"7:00 AM",hour:7,minute:0,tag:"PARTS OF THE DAY",detail:"Morning · Noon · Evening"},
+  13:{title:"12-hour and 24-hour time",caption:"The same moment can be written in two different ways.",time:"13:00",hour:1,minute:0,tag:"TIME FORMATS",detail:"1:00 PM = 13:00"},
+  14:{title:"How long does it take?",caption:"Count forward from the start time to find how much time has passed.",time:"3:40",hour:3,minute:40,tag:"ELAPSED TIME",detail:"3:10 → 3:40 = 30 minutes"},
+  15:{title:"Time in everyday life",caption:"A schedule helps the explorers know what happens next.",time:"8:30",hour:8,minute:30,tag:"DAILY SCHEDULE",detail:"Get ready · Go · Learn · Play"},
+  16:{title:"Clock Master challenge",caption:"Bring your new skills together and celebrate everything you can do.",time:"12:00",hour:12,minute:0,tag:"CLOCK MASTERS",detail:"You did it!"},
  };
  const scene=scenes[lessonId]||scenes[1];
- if (lessonId===3) return <div className="lesson-visual clock-parts-visual"><div className="visual-heading"><span>👀</span><strong>{scene.title}</strong></div><div className="clock-parts-layout"><svg className="clock-parts-svg" viewBox="0 0 360 300" role="img" aria-label="Analog clock showing a short, broad hour hand and a longer, narrow minute hand"><circle cx="180" cy="145" r="119" fill="#fff" stroke="#cbddeb" strokeWidth="8"/><circle cx="180" cy="145" r="108" fill="#f9fcff" stroke="#e4edf4" strokeWidth="2"/>{Array.from({length:12},(_,i)=>{const angle=(i*30-90)*Math.PI/180;const x=180+Math.cos(angle)*86;const y=145+Math.sin(angle)*86;return <text key={i} x={x} y={y+7} textAnchor="middle" fontSize="21" fontWeight="800" fill="#304b63">{i===0?12:i}</text>})}<line x1="180" y1="145" x2="180" y2="91" stroke="#24415a" strokeWidth="13" strokeLinecap="round"/><line x1="180" y1="145" x2="180" y2="54" stroke="#287fba" strokeWidth="7" strokeLinecap="round"/><circle cx="180" cy="145" r="9" fill="#e8ad4b" stroke="#fff" strokeWidth="3"/><path d="M180 80 L180 54" stroke="#287fba" strokeWidth="1.5" strokeDasharray="3 3"/><path d="M180 91 L180 110" stroke="#24415a" strokeWidth="1.5" strokeDasharray="3 3"/></svg><div className="clock-parts-labels"><div className="clock-part-label"><span className="hand-sample hour-sample"></span><div><strong>Hour hand</strong><small>Shorter and usually wider. It shows the hour.</small></div></div><div className="clock-part-label"><span className="hand-sample minute-sample"></span><div><strong>Minute hand</strong><small>Longer and usually thinner. It shows the minutes.</small></div></div><div className="clock-part-label"><span className="centre-sample"></span><div><strong>Centre</strong><small>The hands are attached here.</small></div></div></div></div></div>;
- return <div className="lesson-visual" role="img" aria-label={scene.title}><div className="visual-heading"><span>👀</span><strong>{scene.title}</strong></div><div className="visual-items">{scene.items.map(([icon,label],i)=><div className="visual-item" key={label}><span className="visual-symbol">{icon}</span><small>{label}</small></div>)}</div></div>;
+ const minuteAngle=scene.minute*6-90;
+ const hourAngle=(scene.hour%12)*30+scene.minute*.5-90;
+ const minuteX=180+Math.cos(minuteAngle*Math.PI/180)*91;
+ const minuteY=126+Math.sin(minuteAngle*Math.PI/180)*91;
+ const hourX=180+Math.cos(hourAngle*Math.PI/180)*58;
+ const hourY=126+Math.sin(hourAngle*Math.PI/180)*58;
+ return <section className="lesson-visual clock-story-visual" aria-label={scene.title}>
+  <div className="clock-story-heading"><span className="eyebrow">OUR EXPLORERS DISCOVER</span><strong>{scene.title}</strong><p>{scene.caption}</p></div>
+  <svg className="clock-story-art" viewBox="0 0 760 310" role="img" aria-label={`Illustrated learning scene: ${scene.title}. A clock shows ${scene.time}, with the boy and girl explorers and their dog.`}>
+   <defs><linearGradient id="storySky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#e4f4ff"/><stop offset="1" stopColor="#fff5df"/></linearGradient><linearGradient id="clockFace" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#fff"/><stop offset="1" stopColor="#f6fbff"/></linearGradient></defs>
+   <rect x="1" y="1" width="758" height="308" rx="22" fill="url(#storySky)"/>
+   <circle cx="76" cy="52" r="22" fill="#f7c96d"/><path d="M76 16v-8M76 96v-8M40 52h-8M120 52h-8M50 26l-6-6M108 84l-6-6M102 26l6-6M50 78l-6 6" stroke="#efb95a" strokeWidth="4" strokeLinecap="round"/>
+   <path d="M0 245 Q120 220 230 250 T470 244 T760 238 V310 H0Z" fill="#d8eddf"/>
+   <rect x="56" y="94" width="246" height="176" rx="20" fill="#fff" stroke="#d6e6ef" strokeWidth="3"/>
+   <circle cx="179" cy="178" r="104" fill="url(#clockFace)" stroke="#d5e4ed" strokeWidth="8"/>
+   <circle cx="179" cy="178" r="94" fill="none" stroke="#edf2f6" strokeWidth="2"/>
+   {Array.from({length:60},(_,i)=>{const a=(i*6-90)*Math.PI/180;const inner=i%5===0?82:87;const outer=93;return <line key={i} x1={179+Math.cos(a)*inner} y1={178+Math.sin(a)*inner} x2={179+Math.cos(a)*outer} y2={178+Math.sin(a)*outer} stroke={i%5===0?"#8095a7":"#c8d7e2"} strokeWidth={i%5===0?2.8:1.1} strokeLinecap="round"/>})}
+   {Array.from({length:12},(_,i)=>{const a=(i*30-90)*Math.PI/180;return <text key={i} x={179+Math.cos(a)*69} y={178+Math.sin(a)*69+6} textAnchor="middle" fontSize="16" fontWeight="800" fill="#36536a">{i===0?12:i}</text>})}
+   <line x1="179" y1="178" x2={hourX} y2={hourY} stroke="#26445e" strokeWidth="9" strokeLinecap="round"/>
+   <line x1="179" y1="178" x2={minuteX} y2={minuteY} stroke="#2d8bc1" strokeWidth="5" strokeLinecap="round"/>
+   {lessonId===11&&<line x1="179" y1="178" x2="179" y2="91" stroke="#e5a34b" strokeWidth="2.5" strokeLinecap="round"/>}
+   <circle cx="179" cy="178" r="7" fill="#e9b34f" stroke="#fff" strokeWidth="2"/>
+   <rect x="91" y="278" width="178" height="22" rx="11" fill="#fff" opacity=".92"/>
+   <text x="180" y="293" textAnchor="middle" fontSize="11" fontWeight="900" fill="#4d7189">{scene.time}</text>
+   <rect x="340" y="24" width="375" height="42" rx="14" fill="#ffffffc9" stroke="#ffffff"/>
+   <text x="358" y="50" fontSize="13" fontWeight="900" letterSpacing="1.5" fill="#347da8">{scene.tag}</text>
+   <rect x="340" y="76" width="375" height="42" rx="13" fill="#ffffffb8"/>
+   <text x="358" y="102" fontSize="13" fontWeight="800" fill="#547186">{scene.detail}</text>
+   <g transform="translate(390 145)">
+    <ellipse cx="91" cy="137" rx="88" ry="12" fill="#b5d6c0" opacity=".65"/>
+    <path d="M37 90 Q25 114 31 148 L91 148 L89 102Z" fill="#3187bb"/><path d="M91 102 L150 148 L174 148 Q170 108 138 88Z" fill="#e77b67"/>
+    <path d="M48 139 L43 169 L66 169 L73 143M121 140 L125 169 L148 169 L146 140" fill="#314c66"/>
+    <circle cx="68" cy="48" r="35" fill="#f2c39c"/><path d="M34 48 Q28 4 68 8 Q105 9 103 47 Q88 26 65 28 Q49 30 34 48Z" fill="#76503b"/>
+    <path d="M47 56q7-8 14 0M77 56q7-8 14 0" fill="none" stroke="#4d3a31" strokeWidth="3" strokeLinecap="round"/><path d="M59 72q10 9 21 0" fill="none" stroke="#b65e52" strokeWidth="3" strokeLinecap="round"/>
+    <path d="M34 97 Q22 111 11 119M93 100 Q108 110 120 117" fill="none" stroke="#f2c39c" strokeWidth="12" strokeLinecap="round"/>
+    <circle cx="153" cy="51" r="32" fill="#d99a70"/><path d="M122 49 Q113 15 151 13 Q188 12 185 54 Q167 32 146 33 Q133 34 122 49Z" fill="#493a34"/>
+    <path d="M137 57q6-7 12 0M157 57q6-7 12 0" fill="none" stroke="#3f332f" strokeWidth="3" strokeLinecap="round"/><path d="M144 72q9 8 18 0" fill="none" stroke="#a84f49" strokeWidth="3" strokeLinecap="round"/>
+    <path d="M124 94 Q108 110 101 121M177 94 Q193 110 204 120" fill="none" stroke="#d99a70" strokeWidth="11" strokeLinecap="round"/>
+    <path d="M132 93 Q151 83 176 96 L186 145 L113 145Z" fill="#e77b67"/><path d="M130 140 L123 169 L145 169 L151 144M163 141 L169 169 L191 169 L184 140" fill="#344e66"/>
+    <path d="M6 129 Q-7 113 4 99 Q17 88 31 103 L39 119 Q50 125 42 141 Q27 151 14 141Z" fill="#f1d4a0"/><path d="M7 105 L1 91 Q13 86 21 101M28 104 L36 93 Q47 101 38 114" fill="#d49a48"/><circle cx="14" cy="119" r="2.5" fill="#443a34"/><circle cx="29" cy="119" r="2.5" fill="#443a34"/><path d="M16 129q6 5 12 0" fill="none" stroke="#8c5542" strokeWidth="2"/>
+   </g>
+   <g transform="translate(350 18)"><path d="M0 0l8-8 8 8-8 8Z" fill="#f0bc5e"/><path d="M25 3l5-5 5 5-5 5Z" fill="#5ea3c7"/></g>
+  </svg>
+  <div className="clock-story-footer"><span className="story-dot"></span><span>Look closely, talk about what you see, then try it on the interactive clock.</span></div>
+ </section>;
 }
-
 
 function CalendarLessonVisual({content,lessonId}) { return <CalendarIllustration lessonId={lessonId}/>; }
 
